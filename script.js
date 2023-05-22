@@ -12,7 +12,6 @@ function pad2(n) {
 }
 
 function show() {
-    location.reload();
     var s = count % 60;
     var h = Math.floor(count / 3600);
     var m = Math.floor(count / 60) - (h * 60);
