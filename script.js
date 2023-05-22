@@ -1,7 +1,6 @@
 var hrs = document.getElementById('hrs');
 var mns = document.getElementById('mns');
 var scs = document.getElementById('scs');
-var btcnt = document.getElementById('btnct');
 var showhrs = document.getElementById('showhrs');
 var showmns = document.getElementById('showmns');
 var showscs = document.getElementById('showscs');
