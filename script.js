@@ -1,6 +1,7 @@
 var mns = document.getElementById('mns');
 var scs = document.getElementById('scs');
 var btcnt = document.getElementById('btnct');
+var showhrs = document.getElementById('showhrs');
 var showmns = document.getElementById('showmns');
 var showscs = document.getElementById('showscs');
 
@@ -12,7 +13,9 @@ function pad2(n) {
 
 function show() {
     var s = count % 60;
-    var m = Math.floor(count / 60);
+    var h = Math.floor(count / 3600);
+    var m = Math.floor(count / 60) - (h * 60);
+    showhrs.innerHTML = pad2(h);
     showmns.innerHTML = pad2(m);
     showscs.innerHTML = pad2(s);
 }
@@ -24,34 +27,57 @@ function timer() {
     }
 }
 
-btcnt.addEventListener('click', function () {
-    var s = parseInt(scs.value, 10);
-    var m = parseInt(mns.value, 10);
-    if (isNaN(s) || isNaN(m)) return;
-    scs.value = s;
-    mns.value = m;
-
-    var current = count;
-    count += (m * 60) + s;
-
-    // only restart the counter loop if it was previously stopped
-    if (current <= 0) {
-        timer();
-    } else {
-        show();
-    }
-});
-
 btn10.addEventListener('click', function () {
     var m = 10;
-
     var current = count;
     count += (m * 60);
+    (current <= 0) ? timer() : show ();
+});
 
-    // only restart the counter loop if it was previously stopped
-    if (current <= 0) {
-        timer();
-    } else {
-        show();
-    }
+btn25.addEventListener("click", function () {
+	var m = 25;
+	var current = count;
+	count += m * 60;
+	current <= 0 ? timer() : show();
+});
+
+btn40.addEventListener("click", function () {
+	var m = 40;
+	var current = count;
+	count += m * 60;
+	current <= 0 ? timer() : show();
+});
+
+btn5.addEventListener("click", function () {
+	var m = 5;
+	var current = count;
+	count += m * 60;
+	current <= 0 ? timer() : show();
+});
+
+btn60.addEventListener("click", function () {
+	var h = 1;
+	var current = count;
+	count += h * 3600;
+	current <= 0 ? timer() : show();
+});
+
+btn120.addEventListener("click", function () {
+	var h = 2;
+	var current = count;
+	count += h * 3600;
+	current <= 0 ? timer() : show();
+});
+
+btn180.addEventListener("click", function () {
+	var h = 3;
+	var current = count;
+	count += h * 3600;
+	current <= 0 ? timer() : show();
+});
+
+reset.addEventListener("click", function () {
+	var current = count;
+	count = 0;
+	current <= 0 ? timer() : show();
 });

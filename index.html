@@ -7,14 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-    <form>Minutes:
-        <input type="text" id="mns" name="mns" value="1" size="3" maxlength="3" />&nbsp; &nbsp; Seconds:
-        <input type="text" id="scs" name="scs" value="0" size="2" maxlength="2" />
-        <br/>
-        <input type="button" id="btnct" value="Add / Start" />
-        <br/>
-        <input type="button" id="btn10" value="Add 10 mins" />
-    </form>Countdown Timer: &nbsp; <span id="showmns">00</span>:<span id="showscs">00</span>
+    <span id="showhrs">00</span>:<span id="showmns">00</span>:<span id="showscs">00</span>
+    <form>
+        <input type="button" id="btn10" value="Tier 1 Sub" />
+        <input type="button" id="btn25" value="Tier 2 Sub" />
+        <input type="button" id="btn40" value="Tier 3 Sub" />
+        <input type="button" id="btn5" value="Elixir Spell" />
+        <input type="button" id="btn60" value="Shop $1-10" />
+        <input type="button" id="btn120" value="Shop $11-40" />
+        <input type="button" id="btn180" value="Shop $41+" />
+        <input type="button" id="reset" value="Reset Timer" />
+    </form>
     <script src="script.js"></script>
 </body>
 </html>
