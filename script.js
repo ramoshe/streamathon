@@ -1,3 +1,4 @@
+var hrs = document.getElementById('hrs');
 var mns = document.getElementById('mns');
 var scs = document.getElementById('scs');
 var btcnt = document.getElementById('btnct');
@@ -77,7 +78,15 @@ btn180.addEventListener("click", function () {
 });
 
 reset.addEventListener("click", function () {
+	var s = parseInt(scs.value, 10);
+	var m = parseInt(mns.value, 10);
+    var h = parseInt(hrs.value, 10);
+	if (isNaN(s) || isNaN(m) || isNaN(h)) return;
+	scs.value = 0;
+	mns.value = 0;
+    hrs.value = 0;
+
 	var current = count;
-	count = 0;
+	count = (h * 3600) + (m * 60) + s;
 	current <= 0 ? timer() : show();
 });
