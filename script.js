@@ -18,6 +18,7 @@ function show() {
     showhrs.innerHTML = pad2(h);
     showmns.innerHTML = pad2(m);
     showscs.innerHTML = pad2(s);
+    location.reload();
 }
 
 function timer() {
