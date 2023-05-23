@@ -7,6 +7,27 @@ var showscs = document.getElementById('showscs');
 
 var count = 0;
 
+async function logJSONData() {
+	await fetch("https://eovra2f8jrehbdl.m.pipedream.net")
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error("Network response was not ok");
+			}
+			return response.json();
+		})
+		.then((data) => {
+			console.log(data);
+			addTime(data/60);
+		})
+		.catch((error) => {
+			console.error(
+				"There was a problem with the fetch operation:",
+				error
+			);
+		});
+}
+window.onload = logJSONData;
+
 function pad2(n) {
     return n < 10 ? '0' + n : n;
 }
@@ -25,56 +46,17 @@ function timer() {
     if (count-- > 0) {
         setTimeout(timer, 1000);
     }
+	// const data = { count: count };
+	// postJSON(data);
 }
 
-btn10.addEventListener('click', function () {
-    var m = 10;
-    var current = count;
-    count += (m * 60);
-    (current <= 0) ? timer() : show ();
-});
-
-btn25.addEventListener("click", function () {
-	var m = 25;
+function addTime(m) {
 	var current = count;
 	count += m * 60;
+	const data = { count: count };
+	postJSON(data);
 	current <= 0 ? timer() : show();
-});
-
-btn40.addEventListener("click", function () {
-	var m = 40;
-	var current = count;
-	count += m * 60;
-	current <= 0 ? timer() : show();
-});
-
-btn5.addEventListener("click", function () {
-	var m = 5;
-	var current = count;
-	count += m * 60;
-	current <= 0 ? timer() : show();
-});
-
-btn60.addEventListener("click", function () {
-	var h = 1;
-	var current = count;
-	count += h * 3600;
-	current <= 0 ? timer() : show();
-});
-
-btn120.addEventListener("click", function () {
-	var h = 2;
-	var current = count;
-	count += h * 3600;
-	current <= 0 ? timer() : show();
-});
-
-btn180.addEventListener("click", function () {
-	var h = 3;
-	var current = count;
-	count += h * 3600;
-	current <= 0 ? timer() : show();
-});
+}
 
 reset.addEventListener("click", function () {
 	var s = parseInt(scs.value, 10);
@@ -87,5 +69,28 @@ reset.addEventListener("click", function () {
 
 	var current = count;
 	count = (h * 3600) + (m * 60) + s;
+	const data = { count: count };
+	postJSON(data);
 	current <= 0 ? timer() : show();
 });
+
+async function postJSON(data) {
+	try {
+		const response = await fetch(
+			"https://eodre3icw0att09.m.pipedream.net",
+			{
+				method: "POST", // or 'PUT'
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(data),
+			}
+		);
+
+		const result = await response.json();
+		console.log("Success:", result);
+	} catch (error) {
+		console.error("Error:", error);
+	}
+}
+
