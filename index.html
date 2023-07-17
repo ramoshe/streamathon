@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Iceberg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family='Open Sans'">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div id="timer">
+            <div id="count">
+                <span id="showhrs">00</span>:<span id="showmns">00</span>:<span id="showscs">00</span>
+            </div>
+            <div id="command">
+                <p>Check menu to add time</p>
+            </div>
+        </div>
+        <div id="buttons">
+            <form>
+                <input type="button" id="btn5" class="btn" value="Elixir Spell" onclick="addTime(5)" />
+                <br />
+                <input type="button" id="btn10" class="btn" value="Tier 1 Sub" onclick="addTime(10)" />
+                <input type="button" id="btn25" class="btn" value="Tier 2/Kick Sub" onclick="addTime(25)" />
+                <input type="button" id="btn40" class="btn" value="Tier 3 Sub" onclick="addTime(40)" />
+                <br />
+                <input type="button" id="btn60" class="btn" value="Shop $1-25" onclick="addTime(60)" />
+                <input type="button" id="btn120" class="btn" value="Shop $26-50" onclick="addTime(120)" />
+                <input type="button" id="btn180" class="btn" value="Shop $51+" onclick="addTime(180)" />
+            </form>
+        </div>
+        <div id="setter">
+            <form>
+                Hours:
+                <input type="text" id="hrs" name="mns" value="0" size="3" maxlength="3" />&nbsp; &nbsp;
+                Minutes:
+                <input type="text" id="mns" name="mns" value="0" size="3" maxlength="3" />&nbsp; &nbsp;
+                Seconds:
+                <input type="text" id="scs" name="scs" value="0" size="2" maxlength="2" />
+                <input type="button" id="reset" value="Reset Timer" />
+            </form>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,6 +1,9 @@
 body {
     font-family: 'Open Sans', sans-serif;
 }
+main {
+    margin: 20px;
+}
 #timer {
     background-color: #070707;
     /* padding: .2em .5em; */
@@ -23,6 +26,9 @@ body {
 }
 #buttons {
     margin-top: 100px;
+}
+.btn {
+    margin: 10px;
 }
 #reset {
     margin-top: 20px;
