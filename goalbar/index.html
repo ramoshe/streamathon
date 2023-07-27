@@ -16,24 +16,28 @@
             <div id="progress">
             </div>
         </div>
-        <div class="goal-stat">
-            <span class="goal-number">800</span>
-            <span class="goal-label">Raised This Round</span>
+        <div id="numbers">
+            <div class="goal-stat">
+                <span class="goal-number" id="current-total">0</span>
+            </div>
+            <div class="goal-stat goal-completion">
+                <span class="goal-percent" id="current-percent">0</span><span>%</span>
+            </div>
+            <div class="goal-stat goal-total">
+                <span class="goal-number">5000</span>
+            </div>
         </div>
-        <div class="goal-stat">
-            <span class="goal-number">16</span>%
-        </div>
-        <div class="goal-stat"></div>
-        <div class="goal-stat">
-            <span class="goal-number">5000</span>
-            <span class="goal-label">Milestone Goal</span>
+        <div id="text">
+            <span>Fill the goal to get the next spin!</span>
         </div>
     </div>
     <!--http://stackoverflow.com/questions/9335140/how-to-countdown-to-a-date -->
     <div id="elixir-form">
         <form>
-            <input type="text">
+            <input type="text" id="elixir-amount">
+            <input type="button" value="Add Elixir" onclick="addElixir()">
         </form>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
